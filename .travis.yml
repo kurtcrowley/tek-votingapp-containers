@@ -17,7 +17,7 @@ jobs:
       - export TAG=latest
       - docker build -t $VOTE_APP:$TAG -f Dockerfile .
       - docker images
-      after_success
+      after_success:
       - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then
         docker tag $VOTE_APP:$TAG $VOTE_APP:$TRAVIS_BUILD_NUMBER;
