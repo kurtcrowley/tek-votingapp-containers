@@ -3,7 +3,9 @@ env:
   - VOTE_APP=vote
   - RESULT_APP=result
   - WORKER_APP=worker
-  - REPO=tek-votingapp-containers
+  - REPO=kurtcrowley/tek-votingapp-containers
+  - COMMIT=${TRAVIS_COMMIT::8}
+
 
 sudo: required
 
