@@ -3,7 +3,7 @@ env:
   - VOTE_APP=vote
   - RESULT_APP=result
   - WORKER_APP=worker
-  - REPO=kurtcrowley/tek-votingapp-containers
+  - VOTE_REPO=kurtcrowley/tek-voting-vote
   - COMMIT=${TRAVIS_COMMIT::8}
 
 
@@ -19,10 +19,10 @@ jobs:
       - cd vote
       - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-      - docker build -f Dockerfile -t $REPO/vote:$COMMIT .
-      - docker tag $REPO/vote:$COMMIT $REPO/vote:$TAG
-      - docker tag $REPO/vote:$COMMIT $REPO/vote:travis-$TRAVIS_BUILD_NUMBER
-      - docker push $REPO/vote
+      - docker build -f Dockerfile -t $VOTE_REPO/vote:$COMMIT .
+      - docker tag $VOTE_REPO:$COMMIT $VOTE_REPO:$TAG
+      - docker tag $VOTE_REPO:$COMMIT $VOTE_REPO:travis-$TRAVIS_BUILD_NUMBER
+      - docker push $VOTE_REPO
     - stage: RESULT
       script: 
       - cd vote
