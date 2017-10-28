@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f example-voting-app-master/docker-compose.yml
+    kompose.version: 1.2.0 (99f88ef)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: vote
+  name: vote
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: vote
+    spec:
+      containers:
+      - image: tgscloudevops.azurecr.io/vote
+        name: vote
+        ports:
+        - containerPort: 8181
+        resources: {}
+      restartPolicy: Always
+status: {}

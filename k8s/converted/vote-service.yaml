@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f example-voting-app-master/docker-compose.yml
+    kompose.version: 1.2.0 (99f88ef)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: vote
+  name: vote
+spec:
+  ports:
+  - name: "8181"
+    port: 8181
+    targetPort: 8181
+  selector:
+    io.kompose.service: vote
+status:
+  loadBalancer: {}
