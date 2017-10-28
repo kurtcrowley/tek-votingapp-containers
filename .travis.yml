@@ -19,7 +19,7 @@ jobs:
       - cd vote
       - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-      - docker build -f Dockerfile -t $VOTE_REPO/vote:$COMMIT .
+      - docker build -f Dockerfile -t vote:$TAG .
       - docker tag $VOTE_REPO:$COMMIT $VOTE_REPO:$TAG
       - docker tag $VOTE_REPO:$COMMIT $VOTE_REPO:travis-$TRAVIS_BUILD_NUMBER
       - docker push $VOTE_REPO
