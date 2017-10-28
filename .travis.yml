@@ -1,5 +1,7 @@
 sudo: required
 
+language: python
+
 services:
   - docker
 
@@ -7,5 +9,6 @@ jobs:
   include:
     - stage: build docker image
       script:
+      - echo $TRAVIS_BUILD_DIR
       - docker build -f vote/Dockerfile .
       - docker images
