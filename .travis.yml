@@ -1,5 +1,10 @@
 sudo: required
 
+env: 
+  - VOTE_DIR=vote
+  - RESULT_DIR=result
+  - WORKER_DIR=worker
+
 language: python
 
 services:
@@ -7,10 +12,16 @@ services:
 
 jobs:
   include:
-    - stage: build docker image
-      script:
-      - echo $TRAVIS_BUILD_DIR 
+    - stage: build vote image
+      script: 
       - cd vote
-      - echo $TRAVIS_BUILD_DIR
       - docker build -t vote -f Dockerfile .
       - docker images
+    - stage: build result image
+      script: 
+      - cd result
+      - docker build -t result -f Dockerfile .
+    - stage: build worker image
+      script: 
+      - cd worker
+      - docker build -t worker -f Dockerfile .
