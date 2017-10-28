@@ -2,3 +2,10 @@ sudo: required
 
 services:
   - docker
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - docker build -f vote/Dockerfile
+      - docker images
