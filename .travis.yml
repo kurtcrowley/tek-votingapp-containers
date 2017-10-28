@@ -19,7 +19,7 @@ jobs:
       - cd vote
       - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker build -f Dockerfile -t vote .
-      - docker push vote
+      - docker push $VOTE_REPO
     - stage: RESULT
       script: 
       - cd vote
