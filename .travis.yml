@@ -9,6 +9,8 @@ jobs:
   include:
     - stage: build docker image
       script:
+      - echo $TRAVIS_BUILD_DIR 
+      - cd vote
       - echo $TRAVIS_BUILD_DIR
-      - docker build -f vote/Dockerfile .
+      - docker build -t vote -f Dockerfile .
       - docker images
