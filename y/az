@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-/Users/kurtcrowley/lib/azure-cli/bin/python -m azure.cli "$@"
