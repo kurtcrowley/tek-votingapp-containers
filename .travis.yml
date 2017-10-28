@@ -1,9 +1,8 @@
 env:
   global:
-  - VOTE_APP=vote
-  - RESULT_APP=result
-  - WORKER_APP=worker
   - VOTE_REPO=kurtcrowley/tek-voting-vote
+  - RESULT_REPO=kurtcrowley/tek-voting-result
+  - WORKER_REPO=kurtcrowley/tek-voting-worker
   - COMMIT=${TRAVIS_COMMIT::8}
 
 
@@ -22,9 +21,13 @@ jobs:
       - docker push $VOTE_REPO
     - stage: RESULT
       script: 
-      - cd vote
-      - docker build -t result -f Dockerfile .
+      - cd result
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker build -f Dockerfile -t $RESULT_REPO:$COMMIT .
+      - docker push $RESULT_REPO
     - stage: WORKER
       script: 
       - cd worker
-      - docker build -t worker -f Dockerfile .
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker build -f Dockerfile -t $WORKER_REPO:$COMMIT .
+      - docker push $WORKER_REPO
