@@ -3,7 +3,7 @@ env:
   - VOTE_APP=vote
   - RESULT_APP=result
   - WORKER_APP=worker
-  - REPO=kurtcrowley/tek-votingapp-containers
+  - REPO=tek-votingapp-containers
 
 sudo: required
 
