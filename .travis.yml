@@ -1,27 +1,20 @@
 sudo: required
 
-env: 
-  - VOTE_DIR=vote
-  - RESULT_DIR=result
-  - WORKER_DIR=worker
-
-language: python
-
 services:
   - docker
 
 jobs:
   include:
-    - stage: build vote image
+    - stage: VOTE
       script: 
       - cd vote
       - docker build -t vote -f Dockerfile .
       - docker images
-    - stage: build result image
+    - stage: RESULT
       script: 
-      - cd result
+      - cd vote
       - docker build -t result -f Dockerfile .
-    - stage: build worker image
+    - stage: WORKER
       script: 
       - cd worker
       - docker build -t worker -f Dockerfile .
