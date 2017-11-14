@@ -11,4 +11,4 @@ spec:
   selector:
     component: vote
   sessionAffinity: None
-  type: ClusterIP
+  type: LoadBalancer
