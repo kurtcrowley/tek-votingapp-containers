@@ -11,4 +11,4 @@ spec:
       containers:
       - name: worker
         image: kurtcrowley/tek-voting-worker:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always

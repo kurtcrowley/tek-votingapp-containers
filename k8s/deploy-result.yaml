@@ -12,7 +12,7 @@ spec:
       containers:
       - name: result
         image: kurtcrowley/tek-voting-result:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           protocol: TCP
