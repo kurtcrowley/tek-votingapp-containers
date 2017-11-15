@@ -42,4 +42,5 @@ jobs:
       - docker push $WORKER_REPO
     - stage: DEPLOY TO AKS
       script:
-      - curl -u '$XLR_USERNAME:$XLR_PASSWORD' -v -H "Content-Type: application/json" $XLR_VOTE_DEPLOY_PATH -i -X POST -d '{"releaseTitle": "BCBSA-Travis $TRAVIS_BUILD_NUMBER"}'
+      - cd xlr
+      - sh deploy_votingapp.sh $XLR_USERNAME $XLR_PASSWORD $XLR_VOTE_DEPLOY_PATH "Deploy Voting App Multi tier - Travis 30" 
