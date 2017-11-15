@@ -40,3 +40,6 @@ jobs:
       - docker tag $WORKER_REPO:$COMMIT $WORKER_REPO:$TAG
       - docker tag $WORKER_REPO:$COMMIT $WORKER_REPO:travis-$TRAVIS_BUILD_NUMBER
       - docker push $WORKER_REPO
+    - stage: DEPLOY TO AKS
+      script:
+      - curl -u '$XLR_USERNAME:Tg$4dm1n*' -v -H "Content-Type: application/json" $XLR_VOTE_DEPLOY_PATH -i -X POST -d '{"releaseTitle": "Voting App Multi tier - Travis $TRAVIS_BUILD_NUMBER", "releaseVariables": {"${user}": "iasalazar"}}'
