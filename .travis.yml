@@ -42,4 +42,4 @@ jobs:
       - docker push $WORKER_REPO
     - stage: DEPLOY TO AKS
       script:
-      - curl -u '$XLR_USERNAME:Tg$4dm1n*' -v -H "Content-Type: application/json" $XLR_VOTE_DEPLOY_PATH -i -X POST -d '{"releaseTitle": "Voting App Multi tier - Travis $TRAVIS_BUILD_NUMBER", "releaseVariables": {"${user}": "iasalazar"}}'
+      - curl -u '$XLR_USERNAME:$XLR_PASSWORD' -v -H "Content-Type: application/json" $XLR_VOTE_DEPLOY_PATH -i -X POST -d '{"releaseTitle": "Voting App Multi tier - Travis $TRAVIS_BUILD_NUMBER", "releaseVariables": {"$XLR_USER_VARIABLE": "iasalazar"}}'
