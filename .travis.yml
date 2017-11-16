@@ -40,7 +40,7 @@ jobs:
       - docker tag $WORKER_REPO:$COMMIT $WORKER_REPO:$TAG
       - docker tag $WORKER_REPO:$COMMIT $WORKER_REPO:travis-$TRAVIS_BUILD_NUMBER
       - docker push $WORKER_REPO
-    - stage: DEPLOY TO AKS
+    - stage: XL RELEASE
       script:
       - cd xlr
       - sh deploy_votingapp.sh $XLR_CREDENTIALS $XLR_VOTE_DEPLOY_PATH $VOTE_REPO:travis-$TRAVIS_BUILD_NUMBER
