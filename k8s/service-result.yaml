@@ -12,3 +12,4 @@ spec:
     component: result
   sessionAffinity: None
   type: LoadBalancer
+  loadBalancerIP: 13.92.224.169

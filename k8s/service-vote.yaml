@@ -12,3 +12,4 @@ spec:
     component: vote
   sessionAffinity: None
   type: LoadBalancer
+  loadBalancerIP: 52.179.80.56
