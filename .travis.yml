@@ -5,7 +5,6 @@ env:
   - WORKER_REPO=kurtcrowley/tek-voting-worker
   - COMMIT=${TRAVIS_COMMIT::8}
 
-
 sudo: required
 
 services:
