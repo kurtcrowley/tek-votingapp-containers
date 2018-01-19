@@ -7,6 +7,7 @@ var bg2 = document.getElementById('background-stats-2');
 app.controller('statsCtrl', function($scope){
   $scope.aPercent = 50;
   $scope.bPercent = 50;
+  $scope.total = 0;
 
   var updateScores = function(){
     socket.on('scores', function (json) {
@@ -22,7 +23,7 @@ app.controller('statsCtrl', function($scope){
        $scope.$apply(function () {
          $scope.aPercent = percentages.a;
          $scope.bPercent = percentages.b;
-         $scope.total = a + b;
+         $scope.total = $scope.total + 1;
        });
     });
   };
